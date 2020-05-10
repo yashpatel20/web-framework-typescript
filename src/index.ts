@@ -5,12 +5,14 @@
 import { User } from "./models/User";
 
 //creating a new user
-const user = new User({ id: 1, name: "neelisfat", age: 20 });
+const user = User.buildUser({ id: 1 });
 
 //adding an event listener to user
-user.events.on("save", () => {
+user.on("change", () => {
   console.log(user);
 });
 
 //new user is saved into the db
-user.save();
+user.fetch();
+
+user.isAdminUser();

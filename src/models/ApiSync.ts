@@ -7,7 +7,7 @@ interface hasID {
 
 //Sync class is used to save and fetch data
 
-export class Sync<T extends hasID> {
+export class ApiSync<T extends hasID> {
   //instanctiate with the api endpoint
   constructor(public rootUrl: string) {}
 
