@@ -1,8 +1,16 @@
-import { User } from "./models/User";
-const user = new User({ name: "new record", age: 999 });
+//Goal is to develop a web framework
+//when a user is updated, dispatch a change event and notify other components to rerender
+//typescript principles so that the code scales
 
-user.events.on("change", () => {
-  console.log("change");
+import { User } from "./models/User";
+
+//creating a new user
+const user = new User({ id: 1, name: "neelisfat", age: 20 });
+
+//adding an event listener to user
+user.events.on("save", () => {
+  console.log(user);
 });
 
-user.events.trigger("change");
+//new user is saved into the db
+user.save();
