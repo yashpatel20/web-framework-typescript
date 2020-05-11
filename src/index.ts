@@ -1,10 +1,24 @@
+import { UserList } from "./views/UserList";
+import { CollectionView } from "./views/CollectionView";
+import { UserProps, User } from "./models/User";
 import { Collection } from "./models/Collection";
-import { User, UserProps } from "./models/User";
+import { UserForm } from "./views/UserForm";
+import { UserEdit } from "./views/UserEdit";
 
-const collection = User.buildUserCollection();
+//creating a users collections with all the users from the db.json
+const users = new Collection(
+  "http://localhost:3000/users",
+  (json: UserProps) => {
+    return User.buildUser(json);
+  }
+);
 
-collection.on("change", () => {
-  console.log(collection);
+//
+users.on("change", () => {
+  const root = document.getElementById("root");
+  if (root) {
+    new UserList(root, users).render();
+  }
 });
 
-collection.fetch();
+users.fetch();

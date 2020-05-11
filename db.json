@@ -2,16 +2,16 @@
   "users": [
     {
       "id": 1,
-      "name": "neelisfat",
+      "name": "name1",
       "age": 20
     },
     {
-      "name": "new record",
+      "name": "name2",
       "age": 999,
       "id": 2
     },
     {
-      "name": "new record",
+      "name": "name3",
       "age": 999,
       "id": 3
     }
